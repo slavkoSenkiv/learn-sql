@@ -166,6 +166,177 @@ VALUES
 
 
 
+create database gregs_list
+use gregs_list;
+create table my_contacts
+(
+last_name varchar(30),
+first_name varchar(20),
+email varchar(50),
+birthday date,
+profession varchar(50),
+location varchar(50),
+status varchar(20),
+interests varchar(100),
+seeking varchar(100),
+gender char(1)
+);
+desc my_contacts;
+======================================
+insert into my_contacts
+(
+last_name, 
+first_name, 
+email, gender, 
+birthday, 
+profession, 
+location, 
+status, 
+interests, 
+seeking
+)
+
+values
+(
+'Anderson', 
+'Jillian', 
+'jill_anderson@breakneckpizza.com', 
+'F', 
+'1980-09-05', 
+'Technical Writer', 
+'Palo Alto, CA', 
+'Single', 
+'Kayaking, Reptiles', 
+'Relationship, Friends'
+);
+===================================
+
+insert into doughnut_purchases
+(doughnut_type, dozens, topping, price)
+values
+('jelly', 3, 'sprinkles', 3.50);
+
+===========================
+
+select * from my_contacts
+where first_name = 'Anne';
+==============================	
+
+create table easy_drinks
+(
+drink_name varchar not NULL,
+main varchar not NULL,
+amount dec(1,1) not NULL default 0.1,
+second varchar not NULL, 
+amount2 dec(1,1) not NULL default 0.1,
+directions blob
+);
+
+==================================
+create table donut_rating
+(
+location varchar(225),
+time time,
+date date,
+type varchar(255),
+rating int,
+comments varchar(255)
+);
+desc donut_rating;
+
+==================================
+drop table donut_rating;
+
+=================
+INSERT INTO donut_rating (location, time, date, type, rating, comments) VALUES
+	('Starbuzz Coffee', '7:43', '2022-12-15', 'cinnamon glazed', '6', 'too much spice'),
+	('Duncan\'s Donuts', '8:56', '2022-12-01', 'plain glazed', '5', 'greasy'),
+	('Duncan\'s Donuts', '7:58', '2022-12-01', 'jelly', '6', 'stale, but tasty'),
+	('Starbuzz Coffee', '10:35', '2022-12-01', 'plain glazed', '7', 'warm, but not hot'),
+	('Krispy King', '9:39', '2022-12-01', 'jelly', '6', 'not enough jelly'),
+	('Starbuzz Coffee', '7:48', '2022-12-01', 'rocky road', '10', 'marshmallows!'),
+	('Krispy King', '8:56', '2022-12-01', 'plain glazed', '8', 'maple syrup glaze');
+============================
+select location from donut_rating where type = 'plain glazed' and rating = 5;
+
+=====================
+select last_name from my_contacts where gender = 'F' and location = 'Palo Alto, CA';
+
+====================
+select drink_name from easy_drinks where main = 'soda' and amount > 1;
+====================
+drop table drink_info;
+
+create table drink_info
+(
+drink_name varchar(225),
+cost float,
+carbs int,
+color varchar(50),
+ice char(1),
+calories int
+);
+
+
+INSERT INTO drink_info (drink_name, cost, carbs, color, ice, calories) VALUES
+	('Blackthorn', 3.0, '8.4', 'yellow', 'Y', '33'),
+	('Blue Moon', 2.5, '3.2', 'blue', 'Y', '12'),
+	('Oh My Gosh', 3.5, '8.6', 'orange', 'Y', '35'),
+	('Lime Fizz', 2.5, '5.4', 'green', 'Y', '24'),
+	('Kiss on the Lips', 5.5, '42.5', 'purple', 'Y', '171'),
+	('Hot Gold', 3.2, '32.1', 'orange', 'N', '135'),
+	('Lone Tree', 3.6, '4.2', 'red', 'Y', '17'),
+	('Greyhound', 4, '14', 'yellow', 'Y', '50'),
+	('Indian Summer', 2.8, '7.2', 'brown', 'N', '30'),
+	('Bull Frog', 2.6, '21.5', 'tan', 'Y', '80'),
+	('Soda and It', 3.8, '4.7', 'red', 'N', '19');
+
+select * from drink_info;
+==================
+select drink_name from drink_info where cost >= 3.5 and calories < 50;
+
+select cost from drink_info where ice = 'Y' and color = 'yellow'  and calories < 33;
+
+select cost from drink_info where
+
+select color from drink_info where carbs <= 4 and ice = 'Y';
+
+select drink_name, color, ice from drink_info where cost >= 4;
+
+SELECT drink_name FROM drink_info WHERE drink_name >= 'L' AND drink_name < 'M';
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
