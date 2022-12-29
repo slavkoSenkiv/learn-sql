@@ -304,12 +304,22 @@ select color from drink_info where carbs <= 4 and ice = 'Y';
 select drink_name, color, ice from drink_info where cost >= 4;
 
 SELECT drink_name FROM drink_info WHERE drink_name >= 'L' AND drink_name < 'M';
+====================
+SELECT drink_name FROM easy_drinks WHERE main = 'cherry juice' OR second = 'cherry juice';
+SELECT drink_name FROM easy_drinks WHERE main = 'orange juice' OR main = 'apple juice';
 
 
+=======================
 
+SELECT type FROM donut_rating WHERE location = 'Krispy King' AND rating <> 6;
+SELECT type FROM donut_rating WHERE location = 'Krispy King' AND rating = 3;
+SELECT type FROM donut_rating WHERE location = 'Snappy Bagel' AND rating >= 6;
+SELECT type FROM donut_rating WHERE location = 'Krispy King' OR rating > 5;
+SELECT type FROM donut_rating WHERE location = 'Krispy King' OR rating = 3;
+SELECT type FROM donut_rating WHERE location = 'Snappy Bagel' OR rating = 6;
 
-
-
+==================
+select drink_name from drink_info where calories is null;
 
 
 
