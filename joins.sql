@@ -10,7 +10,10 @@
 -- from payment inner join customer
 -- on payment.customer_id = customer.customer_id
 
-select customer_id, first_name, last_name, customer.address_id, address.address_id, address, district
-from customer inner join address on customer.address_id = address.address_id
-where district = ''
-order by customer.customer_id asc
+-- select customer_id, first_name, last_name, customer.address_id, address.address_id, address, district
+-- from customer inner join address on customer.address_id = address.address_id
+-- where district = ''
+-- order by customer.customer_id asc
+
+-- select * from customer inner join address
+-- on customer.address_id = address.address_id
