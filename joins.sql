@@ -17,3 +17,24 @@
 
 -- select * from customer inner join address
 -- on customer.address_id = address.address_id
+
+-- select * from customer
+-- full outer join payment
+-- on customer.customer_id = payment.customer_id
+-- where customer.customer_id is null 
+-- or payment.payment_id is null
+
+select film.film_id, title, inventory_id, store_id
+from film
+left outer join inventory
+on inventory.film_id = film.film_id
+where inventory.film_id is null
+
+
+
+
+
+
+
+
+
