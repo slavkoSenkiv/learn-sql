@@ -24,11 +24,25 @@
 -- where customer.customer_id is null 
 -- or payment.payment_id is null
 
-select film.film_id, title, inventory_id, store_id
-from film
-left outer join inventory
-on inventory.film_id = film.film_id
-where inventory.film_id is null
+-- select film.film_id, title, inventory_id, store_id
+-- from film
+-- left outer join inventory
+-- on inventory.film_id = film.film_id
+-- where inventory.film_id is null
+
+-- select film.film_id, title, inventory_id, store_id from film
+-- left join inventory
+-- on film.film_id = inventory.film_id
+-- --order by inventory_id desc
+-- where inventory.film_id is null
+
+
+
+
+
+
+
+
 
 
 
