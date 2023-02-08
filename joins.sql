@@ -36,12 +36,26 @@
 -- --order by inventory_id desc
 -- where inventory.film_id is null
 
+-- select email, district  from customer inner join address
+-- on customer.address_id = address.address_id
+-- where district ilike '%california'
 
+--select * from film
+--select * from actor
+select 
+	actor.film_id,
+	actor.actor_id, 
+	film_actor.film_id,
+	film_actor.actor_id
+	film_actor.first_name,
+	film_actor.last_name,
 
+	
+from film_actor inner join actor
+on film_actor.actor_id = actor.actor_id
 
-
-
-
+where actor.first_name ilike '%nick%'
+and actor.last_name ilike '%wah%'
 
 
 
