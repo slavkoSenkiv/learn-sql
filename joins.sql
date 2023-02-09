@@ -43,16 +43,18 @@
 --select * from film
 --select * from actor
 select 
-	actor.film_id,
-	actor.actor_id, 
+	film.title,
 	film_actor.film_id,
-	film_actor.actor_id
-	film_actor.first_name,
-	film_actor.last_name,
-
+	film_actor.actor_id,
+	actor.actor_id,
+	actor.first_name,
+	actor.last_name
 	
-from film_actor inner join actor
+from film_actor 
+inner join actor
 on film_actor.actor_id = actor.actor_id
+inner join film 
+on film_actor.film_id = film.film_id
 
 where actor.first_name ilike '%nick%'
 and actor.last_name ilike '%wah%'
