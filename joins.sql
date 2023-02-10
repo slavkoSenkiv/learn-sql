@@ -42,24 +42,34 @@
 
 --select * from film
 --select * from actor
-select 
-	film.title,
-	film_actor.film_id,
-	film_actor.actor_id,
-	actor.actor_id,
-	actor.first_name,
-	actor.last_name
+
+-- select 
+-- 	film.title,
+-- 	film_actor.film_id,
+-- 	film_actor.actor_id,
+-- 	actor.actor_id,
+-- 	actor.first_name,
+-- 	actor.last_name
 	
-from film_actor 
-inner join actor
-on film_actor.actor_id = actor.actor_id
-inner join film 
-on film_actor.film_id = film.film_id
+-- from film_actor 
+-- inner join actor
+-- on film_actor.actor_id = actor.actor_id
+-- inner join film 
+-- on film_actor.film_id = film.film_id
 
-where actor.first_name ilike '%nick%'
-and actor.last_name ilike '%wah%'
+-- where actor.first_name ilike '%nick%'
+-- and actor.last_name ilike '%wah%'
 
+select title, first_name, last_name
 
+from actor 
+inner join film_actor 
+on actor.actor_id = film_actor.actor_id 
+inner join film
+on film.film_id = film_actor.film_id
+
+where first_name ilike '%nick%' 
+and last_name ilike '%wah%'
 
 
 
