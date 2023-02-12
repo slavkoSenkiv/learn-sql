@@ -27,6 +27,11 @@
 --where dayname(payment_date) = 'Monday'
 --where datename(weekday, payment_date) = 'Monday'
 
-select count(payment_date) from payment
-where extract(dow from payment_date) = 1
+-- select count(payment_date) from payment
+-- where extract(dow from payment_date) = 1
+
+select 
+	title, 
+	round(rental_rate/replacement_cost,2)*100 as  risk
+from film
 
