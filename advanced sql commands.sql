@@ -49,11 +49,13 @@
 -- select * from rental
 -- select * from inventory
 
+--!
 -- select film_id, title from film where film_id in
 -- (select inventory.film_id from rental
 -- inner join inventory on inventory.inventory_id = rental.inventory_id
 -- where rental_date between '2005-05-29' and '2005-05-30')
 
+--!
 -- select first_name, last_name from customer as c
 -- where exists 
 -- (select * from payment as p
@@ -76,9 +78,35 @@
 -- on film.film_id = inventory.film_id
 -- where rental_date between '2005-05-29' and '2005-05-30'
 
-select title, film_id from film
-inner join inventrory 
-on film.film_id = inventory.film_id
-inner join rental
-on inventory.inventory_id = rental.inventory_id
-where rental_date between '2005-05-29' and '2005-05-30'
+-- select 
+-- 	film.title, 
+-- 	film.film_id, 
+-- 	inventory.film_id,
+-- 	inventory.inventory_id,
+-- 	rental.inventory_id,
+-- 	rental.rental_date
+
+-- from film
+-- inner join inventory 
+-- on film.film_id = inventory.film_id
+-- inner join rental
+-- on inventory.inventory_id = rental.inventory_id
+-- where rental_date between '2005-05-29' and '2005-05-30'
+
+-- select title, rental_rate from film
+-- where rental_rate > (select avg(rental_rate) from film)
+
+-- select title, film_id from film where film_id in
+-- (select inventory.film_id from inventory
+-- inner join rental
+-- on inventory.inventory_id = rental.inventory_id
+-- where rental_date between '2005-05-29' and '2005-05-30')
+
+
+
+
+
+
+
+
+
