@@ -93,20 +93,35 @@
 -- on inventory.inventory_id = rental.inventory_id
 -- where rental_date between '2005-05-29' and '2005-05-30'
 
+-- # define films with  rental rate > avg rental rate
 -- select title, rental_rate from film
 -- where rental_rate > (select avg(rental_rate) from film)
 
+-- # define  films that where tented between speciffic dates
 -- select title, film_id from film where film_id in
 -- (select inventory.film_id from inventory
 -- inner join rental
 -- on inventory.inventory_id = rental.inventory_id
 -- where rental_date between '2005-05-29' and '2005-05-30')
 
+-- # define what customer had at least one payment with amount > 11
+-- select 
+-- 	first_name, 
+-- 	last_name 
+-- from customer as c
+-- where exists (
+-- 	select * 
+-- 	from payment as p
+-- 	where p.customer_id = c.customer_id
+-- 	and amount > 11)
 
-
-
-
-
+-- # define what films have same length
+-- select filmA.title, filmB.title, filmA.length as filmA
+-- from film as filmA
+-- inner join film as filmB
+-- on filmA.film_id != filmB.film_id
+-- and filmA.length = filmB.length
+-- order by filmA desc
 
 
 
