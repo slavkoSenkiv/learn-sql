@@ -56,3 +56,5 @@ where starttime between '2012-09-01 00:00:00' and '2012-09-30 23:59:59'
 --where date_part('month', starttime) = 09 and date_part('year', starttime) = 12
 group by cd.facilities.facid
 order by sum(slots)
+
+-- last exercise was 11
