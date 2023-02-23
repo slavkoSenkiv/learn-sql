@@ -26,6 +26,33 @@
 
 --select * from cd.facilities where name ilike '%ten%'
 
-select * from cd.facilities where facid in (1, 5)
+-- select * from cd.facilities where facid in (1, 5)
 
+-- select *  from cd.members
+-- where joindate >= '2012-09-01'
 
+-- select distinct(surname) from cd.members order by surname limit 10 
+
+-- select * from cd.members
+-- where joindate = (select max(joindate) from cd.members)
+
+--select * from cd.facilities
+--select count(*) from cd.facilities where guestcost > 6
+
+--Produce a list of the total number of slots 
+--booked per facility in the month of September 2012. 
+--Produce an output table consisting of facility id and slots, 
+--sorted by the number of slots.
+
+select 
+	cd.facilities.facid,
+	cd.facilities.name,
+	sum(slots)
+from cd.facilities
+inner join cd.bookings
+on cd.facilities.facid = cd.bookings.facid
+where starttime between '2012-09-01 00:00:00' and '2012-09-30 23:59:59'
+--where starttime >= '2012-09-01' and starttime < '2012-10-01'
+--where date_part('month', starttime) = 09 and date_part('year', starttime) = 12
+group by cd.facilities.facid
+order by sum(slots)
