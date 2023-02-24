@@ -44,17 +44,76 @@
 --Produce an output table consisting of facility id and slots, 
 --sorted by the number of slots.
 
-select 
-	cd.facilities.facid,
-	cd.facilities.name,
-	sum(slots)
-from cd.facilities
-inner join cd.bookings
-on cd.facilities.facid = cd.bookings.facid
-where starttime between '2012-09-01 00:00:00' and '2012-09-30 23:59:59'
---where starttime >= '2012-09-01' and starttime < '2012-10-01'
---where date_part('month', starttime) = 09 and date_part('year', starttime) = 12
-group by cd.facilities.facid
-order by sum(slots)
+-- select 
+-- 	cd.facilities.facid,
+-- 	cd.facilities.name,
+-- 	sum(slots)
+-- from cd.facilities
+-- inner join cd.bookings
+-- on cd.facilities.facid = cd.bookings.facid
+-- where starttime between '2012-09-01 00:00:00' and '2012-09-30 23:59:59'
+-- --where starttime >= '2012-09-01' and starttime < '2012-10-01'
+-- --where date_part('month', starttime) = 09 and date_part('year', starttime) = 12
+-- group by cd.facilities.facid
+-- order by sum(slots)
 
--- last exercise was 11
+-- Produce a list of facilities with more than 1000 slots booked. 
+--Produce an output table consisting of facility id and total slots, sorted by facility id.
+
+-- select 
+-- 	cd.facilities.facid,
+-- 	cd.facilities.name,
+-- 	sum(slots)
+-- from cd.facilities
+-- inner join cd.bookings
+-- on cd.facilities.facid = cd.bookings.facid
+-- group by cd.facilities.facid
+-- having sum(slots) > 1000
+-- order by cd.facilities.facid
+
+--How can you produce a list of the start times for bookings 
+--for tennis courts, for the date '2012-09-21'? 
+--Return a list of start time and facility name pairings, ordered by the time.
+
+-- my initian more complex varian where I search for the earliest time possible
+-- select 
+-- 	distinct(cd.facilities.facid),
+-- 	cd.facilities.name,
+-- 	min(starttime)
+-- from cd.facilities
+-- inner join cd.bookings
+-- on cd.facilities.facid = cd.bookings.facid
+-- where cd.facilities.name ilike '%tennis%'
+-- and date(starttime) = '2012-09-21'
+-- group by distinct(cd.facilities.facid)
+
+-- my answer with just every start time
+-- select 
+-- 	distinct(cd.facilities.facid),
+-- 	cd.facilities.name,
+-- 	min(starttime)
+-- from cd.facilities
+-- inner join cd.bookings
+-- on cd.facilities.facid = cd.bookings.facid
+-- where cd.facilities.name ilike '%tennis%'
+-- and date(starttime) = '2012-09-21'
+-- group by cd.facilities.facid
+-- order by cd.facilities.facid
+
+-- How can you produce a list of the start times 
+--for bookings by members named 'David Farrell'?
+
+-- select 
+--  firstname,
+--  surname,
+--  starttime
+-- from cd.facilities
+-- inner join cd.bookings
+-- on cd.facilities.facid = cd.bookings.facid
+-- inner join cd.members
+-- on cd.bookings.memid = cd.members.memid
+-- where firstname = 'David'
+-- and surname = 'Farrell'
+
+
+
