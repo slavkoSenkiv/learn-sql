@@ -36,4 +36,31 @@
 --insert into account_job (user_id, job_id, hire_date) values (1, 1, current_timestamp)
 --insert into account_job (user_id, job_id, hire_date) values (1, 2, current_timestamp)
 --insert into account_job (user_id, job_id, hire_date) values (2, 2, current_timestamp)
-insert into account_job (user_id, job_id, hire_date) values (2, 2, current_timestamp)
+--insert into account_job (user_id, job_id, hire_date) values (2, 2, current_timestamp)
+
+--update account set last_login = current_timestamp
+--update account set last_login = create_on
+--update account set create_on = current_timestamp
+--update account set create_on = last_login
+
+-- update account_job
+-- set hire_date = create_on from account
+-- where account_job.user_id = account.user_id
+
+-- update account set last_login = current_timestamp where user_id = 1
+-- returning user_id, last_login
+
+--insert into job (job_name) values ('cowboy')
+delete from job where job_name = 'cowboy' returning job_id, job_name
+
+
+
+
+
+
+
+
+
+
+
+
