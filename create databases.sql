@@ -51,11 +51,41 @@
 -- returning user_id, last_login
 
 --insert into job (job_name) values ('cowboy')
-delete from job where job_name = 'cowboy' returning job_id, job_name
+--delete from job where job_name = 'cowboy' returning job_id, job_name
 
+-- create table information (
+-- 	info_id serial primary key,
+-- 	title varchar (500) not null,
+-- 	person varchar (50) not null unique
+-- )
 
+-- alter table information rename to info
+-- alter table info rename column person to ppl
+-- insert into info(title) values ('some title')
+-- alter table info
+-- alter column ppl drop not null
+--insert into info(title) values ('some title')
 
+-- alter table info
+-- drop column ppl
 
+-- alter table info
+-- drop column  if exists ppl
+
+-- create table employes (
+-- 	emp_id serial primary key,
+-- 	f_name varchar(50) not null,
+-- 	l_name varchar(50) not null,
+-- 	b_date date check (b_date > '1900-01-01'),
+-- 	hire_date date check (hire_date > b_date),
+-- 	salary integer check (salary > 0)
+-- )
+
+-- insert into employes (f_name, l_name, b_date, hire_date, salary)
+-- values ('slav', 'senkiv', '1980-01-01', '2010-01-01', 100)
+
+insert into employes (f_name, l_name, b_date, hire_date, salary)
+values ('slav', 'senkiv', '1980-01-01', '2010-01-01', 50)
 
 
 
