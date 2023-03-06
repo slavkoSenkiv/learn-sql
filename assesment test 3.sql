@@ -23,6 +23,27 @@
 -- 	department varchar(50))
 
 -- # not working - modify datatype and constraint
--- ALTER TABLE students 
--- modify phone varchar(50) not null;
+--ALTER TABLE students alter column phone set not null;
+
+-- ALTER TABLE teachers
+-- ADD CONSTRAINT not_null_data
+-- CHECK (phone IS NOT NULL AND email IS NOT NULL);
+
+-- insert into teachers
+-- (first_name, last_name, homeroom_number, phone, email, department)
+-- values
+-- ('slav', 'senkiv', 1, '123', 'asd', 'sience')
+
+-- insert into teachers
+-- (first_name, last_name, homeroom_number, phone, email)--, department)
+-- values
+-- ('slav1', 'senkiv1', 2, '123', 'qwe')--, 'sience')
+
+
+--ALTER TABLE teachers alter department set not null;
+
+-- # want but cant add value to existing row - change last department column value
+insert into teachers (department) values ('art')
+
+
 
