@@ -35,11 +35,11 @@
 -- end) as plus
 -- from film
 
-select
-sum(case rating	when 'R' then 1 else 0 end) as r,
-sum(case rating	when 'PG' then 1 else 0 end) as pg,
-sum(case rating	when 'PG-13' then 1 else 0 end) as pg13
-from film
+-- select
+-- sum(case rating	when 'R' then 1 else 0 end) as r,
+-- sum(case rating	when 'PG' then 1 else 0 end) as pg,
+-- sum(case rating	when 'PG-13' then 1 else 0 end) as pg13
+-- from film
 
 -- select
 -- sum(case 
@@ -53,3 +53,8 @@ from film
 -- end) as pg13
 -- from film
 
+-- create view customer_info as
+-- select first_name, last_name, address from customer
+-- inner join address on customer.address_id = address.address_id
+
+select last_name, address from customer_info
